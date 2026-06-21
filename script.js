@@ -1,335 +1,336 @@
- /* ===========================
- روحانی اسفیئر - اسکرپٹ جے ایس
- ============================*/
+/* ===========================
+   RUHANI SPHERE – script.js
+   =========================== */
 
- // ========== انگریزی میں ڈیٹا ==========
- const rohaniServices = [
- { نام: "کالے جادو کا خاتمہ" , آئیکن: "🔱" , desc: "قرآنی آیات کے ذریعے کالے جادو کی رکاوٹوں کا مکمل خاتمہ" },
- { نام: "طلاق کی روک تھام" , آئیکن: "💍" , desc: "روحانی رہنمائی جس کا مقصد خاندانی تعلقات کی حفاظت اور اسے برقرار رکھنا ہے" },
- { نام: "جن اینڈ ایول اسپرٹ کیور" ، آئیکن: "🌙" ، تفصیل: "جنات کے نقصان دہ اثرات اور منفی توانائی کے سائے سے نجات" },
- { نام: "شادی کی راہ میں حائل رکاوٹیں ہٹانا" , آئیکن: "💒" , desc: "شادی کی ترتیب میں غیر متوقع رکاوٹوں یا منظم رکاوٹوں کو ختم کرنا" },
- { نام: "کاروباری رکاوٹ کا علاج" , آئیکن: "💼" , desc: "دائمی کاروباری ناکامیوں اور نقصانات کے پیچھے روحانی عناصر کا تدارک" },
- { نام: "بچوں کی برکت" , آئیکن: "🤲" , desc: "متمرکز روحانی دعائیں اور اولاد کے خواہشمند جوڑوں کے لیے علاج" },
- { نام: "رشتوں کی ہم آہنگی" , آئیکن: "🤝" , desc: "گہرے تنازعات کو حل کرنا اور خاندانی رشتہ داروں کے درمیان باہمی پیار پیدا کرنا" },
- { نام: "دائمی بیماریوں سے نجات" , آئیکن: "🌿" , desc: "نبیانہ علاج کے ذریعے جسمانی بیماریوں سے خالص مکمل صحت یابی کی تلاش" },
- { نام: "دل اور روح کی شفایابی" , آئیکن: "❤️‍🩹" , desc: "روحانی شفایابی اندرونی سکون اور دل سے متعلق پریشانیوں کے لیے ڈیزائن کیا گیا ہے" },
- { نام: "غیر وضاحتی بیماری کا علاج" , آئیکن: "🩺" , desc: "روحانی مجبوریوں کی وجہ سے مافیا جسمانی بیماریوں کا علاج" },
- { نام: "خاندانی اور بچوں کی اصلاح" , آئیکن: "👨‍👩‍👧" , desc: "نافرمان خاندان کے افراد کی مؤثر طریقے سے صالح راستے کی طرف رہنمائی کرنا" },
- { نام: "ازدواجی امن اور رہنمائی" , آئیکن: "🕊️" , desc: "زندگی میاں بیوی کے درمیان فطری باہمی مفاہمت اور محبت کی بحالی" },
- ];
+// ========== DATA IN ENGLISH ==========
+const rohaniServices = [
+  { name: "Black Magic Removal",       icon: "🔱", desc: "Complete elimination of black magic blockages through Quranic verses" },
+  { name: "Divorce Prevention",        icon: "💍", desc: "Spiritual guidance aimed at protecting and sustaining family relations" },
+  { name: "Jinn & Evil Spirit Cure",   icon: "🌙", desc: "Deliverance from the harmful impacts of jinns and negative energy shadows" },
+  { name: "Marriage Obstacles Removal", icon: "💒", desc: "Eliminating unforeseen hurdles or systematic blockages in marriage alignments" },
+  { name: "Business Blockage Cure",    icon: "💼", desc: "Remedying spiritual elements behind chronic business failures and losses" },
+  { name: "Blessing of Children",      icon: "🤲", desc: "Focused spiritual prayers and treatments for couples seeking progeny" },
+  { name: "Relationship Harmony",      icon: "🤝", desc: "Resolving deep disputes and creating mutual affection between family relatives" },
+  { name: "Chronic Ailments Relief",   icon: "🌿", desc: "Seeking pure holistic recovery from physical diseases using prophetic remedies" },
+  { name: "Heart & Soul Healing",      icon: "❤️‍🩹", desc: "Spiritual healing designed for inner peace and heart-related worries" },
+  { name: "Unexplained Illness Cure",  icon: "🩺", desc: "Treatment for elusive bodily illnesses induced by spiritual constraints" },
+  { name: "Family & Child Reform",     icon: "👨‍👩‍👧", desc: "Guiding disobedient family members effectively back to the righteous path" },
+  { name: "Marital Peace & Guidance",  icon: "🕊️", desc: "Restoring natural mutual understanding and love between life spouses" },
+];
 
- const quranCourses = [
- {
- نام: "قائدہ" ،
- آئیکن: "📗" ،
- desc: "قرآن پڑھنا شروع کرنے کے لیے ضروری گائیڈ - بنیادی حروف تہجی میں مہارت حاصل کرنا" ،
- سلگ: "قائدہ"
- }،
- {
- نام: "تجوید" ،
- آئیکن: "🎙️" ،
- desc: "انتہائی درست تلفظ اور خوبصورت صوتی تال کے اصول سیکھیں" ،
- سلگ: "تجوید"
- }،
- {
- نام: "حفز" ،
- آئیکن: "📖" ،
- desc: "قرآن پاک کو روزانہ کی آن لائن نگرانی کے حسب ضرورت نظام الاوقات کے ساتھ یاد رکھیں" ،
- سلگ: "Hifz"
- }،
- {
- نام: "ترجمہ" ،
- آئیکن: "🌍" ،
- desc: "مقدس آیات کا درست ترجمہ کرکے گہری لغوی بصیرت حاصل کریں" ،
- سلگ: "ترجمہ"
- }،
- {
- نام: "تفسیر" ،
- آئیکن: "💡" ،
- desc: "اسلامی نصوص کی جامع تفسیر اور گہری سیاق و سباق کی حکمت حاصل کریں" ،
- سلگ: "تفسیر"
- }،
- ];
+const quranCourses = [
+  {
+    name: "Qaida",
+    icon: "📗",
+    desc: "The essential guide to starting Quran reading – mastering foundational alphabets",
+    slug: "Qaida"
+  },
+  {
+    name: "Tajweed",
+    icon: "🎙️",
+    desc: "Learn highly accurate pronunciation and beautiful acoustic rhythmic rules",
+    slug: "Tajweed"
+  },
+  {
+    name: "Hifz",
+    icon: "📖",
+    desc: "Commit the Holy Quran to memory with custom daily online monitoring schedules",
+    slug: "Hifz"
+  },
+  {
+    name: "Translation",
+    icon: "🌍",
+    desc: "Gain deep literal insights by translating the holy verses accurately",
+    slug: "Translation"
+  },
+  {
+    name: "Tafseer",
+    icon: "💡",
+    desc: "Attain comprehensive exegesis and deep contextual wisdom of Islamic texts",
+    slug: "Tafseer"
+  },
+];
 
- const WA_NUMBER = "923038853329" ; // واٹس ایپ نمبر (انٹل فارمیٹ)
+const WA_NUMBER = "923038853329";  // WhatsApp number (intl format)
 
- // عالمی سطح پر انتخاب کی تفصیلات کو ٹریک کریں۔
- let currentSelectionType = null ; // 'سروس'، 'کورس'، یا کالعدم
- let currentSelectionValue = "" ;
+// Track selection details globally
+let currentSelectionType = null;   // 'service', 'course', or null
+let currentSelectionValue = "";
 
- // ========== آبادی ڈراپ ڈاؤن ==========
- فنکشن populateDropdowns () {
- const service منتخب کریں = دستاویز۔ getElementById ( "selectService" )؛
- const courseSelect = دستاویز ۔ getElementById ( "سلیکٹ کورس" )؛
+// ========== POPULATE DROPDOWNS ==========
+function populateDropdowns() {
+  const serviceSelect = document.getElementById("selectService");
+  const courseSelect = document.getElementById("selectCourse");
 
- اگر ( خدمت منتخب کریں ) {
- سروس منتخب کریں innerHTML = `<option value="">-- ایک سروس کا انتخاب کریں --</option>` +
- rohaniServices نقشہ ( s => `<option value=" ${ s . name } "> ${ s . name } </option>` )۔ شمولیت ( "" )؛
- }
- اگر ( کورس سلیکٹ ) {
- کورس منتخب کریں innerHTML = `<option value="">-- ایک کورس منتخب کریں --</option>` +
- قرآنی کورسز نقشہ ( c => `<option value=" ${ c . name } "> ${ c . name } </option>` )۔ شمولیت ( "" )؛
- }
- }
+  if (serviceSelect) {
+    serviceSelect.innerHTML = `<option value="">-- Choose a Service --</option>` + 
+      rohaniServices.map(s => `<option value="${s.name}">${s.name}</option>`).join("");
+  }
+  if (courseSelect) {
+    courseSelect.innerHTML = `<option value="">-- Choose a Course --</option>` + 
+      quranCourses.map(c => `<option value="${c.name}">${c.name}</option>`).join("");
+  }
+}
 
- // ========== رینڈر کارڈ ==========
- فنکشن renderRohaniServices () {
- const grid = دستاویز ۔ getElementById ( "rohaniServicesGrid" )؛
- گرڈ innerHTML = rohaniServices . نقشہ ( s => `
- <div class="service-card animate-on-scroll">
- <div class="card-icon"> ${ s ۔ آئیکن } </div>
- <div class="card-name"> ${ s ۔ نام } </div>
- <div class="card-desc"> ${ s ۔ desc } </div>
- <a href="#contact" class="card-btn" onclick="openContactForService(' ${ s . name } ')"> 📲 ہم سے رابطہ کریں</a>
- </div>
- ` ) شمولیت ( "" )؛
- }
+// ========== RENDER CARDS ==========
+function renderRohaniServices() {
+  const grid = document.getElementById("rohaniServicesGrid");
+  grid.innerHTML = rohaniServices.map(s => `
+    <div class="service-card animate-on-scroll">
+      <div class="card-icon">${s.icon}</div>
+      <div class="card-name">${s.name}</div>
+      <div class="card-desc">${s.desc}</div>
+      <a href="#contact" class="card-btn" onclick="openContactForService('${s.name}')">📲 Contact Us</a>
+    </div>
+  `).join("");
+}
 
- فنکشن رینڈر کورسز () {
- const grid = دستاویز ۔ getElementById ( "coursesGrid" )؛
- گرڈ innerHTML = قرآنی کورسز ۔ نقشہ ( c => `
- <div class="course-card animate-on-scroll">
- <div class="card-icon"> ${ c . آئیکن } </div>
- <div class="card-name"> ${ c . نام } </div>
- <div class="card-desc"> ${ c . desc } </div>
- <a href="#contact" class="card-btn" onclick="openContactForCourse(' ${ c . name } ')"> 📲 ابھی رجسٹر کریں</a>
- </div>
- ` ) شمولیت ( "" )؛
- }
+function renderCourses() {
+  const grid = document.getElementById("coursesGrid");
+  grid.innerHTML = quranCourses.map(c => `
+    <div class="course-card animate-on-scroll">
+      <div class="card-icon">${c.icon}</div>
+      <div class="card-name">${c.name}</div>
+      <div class="card-desc">${c.desc}</div>
+      <a href="#contact" class="card-btn" onclick="openContactForCourse('${c.name}')">📲 Register Now</a>
+    </div>
+  `).join("");
+}
 
- // ========== رابطہ فارم منطق ==========
- فنکشن resetContactForm () {
- // دوہری ڈراپ ڈاؤن اختیارات دکھاتے ہوئے براہ راست نیویگیشن حالت پر واپس جائیں۔
- دستاویز getElementById ( "generalDropdownsGroup" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "آٹوفیل فیلڈ گروپ" )۔ انداز ڈسپلے = "کوئی نہیں" ؛
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "بلاک" ؛
+// ========== CONTACT FORM LOGIC ==========
+function resetContactForm() {
+  // Revert back to direct navigation state showing dual dropdown options
+  document.getElementById("generalDropdownsGroup").style.display = "block";
+  document.getElementById("autofillFieldGroup").style.display = "none";
+  document.getElementById("messageFieldGroup").style.display = "block";
 
- دستاویز getElementById ( "selectService" )۔ قدر = "" ؛
- دستاویز getElementById ( "سلیکٹ کورس" )۔ قدر = "" ؛
- دستاویز getElementById ( "autofillValue" )۔ قدر = "" ؛
- دستاویز getElementById ( "پیغام" )۔ قدر = "" ؛
- دستاویز getElementById ( "پیغام" )۔ placeholder = "اپنا سوال یا تشویش یہاں لکھیں..." ;
+  document.getElementById("selectService").value = "";
+  document.getElementById("selectCourse").value = "";
+  document.getElementById("autofillValue").value = "";
+  document.getElementById("message").value = "";
+  document.getElementById("message").placeholder = "Write your question or concern here...";
 
- currentSelectionType = null ;
- currentSelectionValue = "" ;
- }
+  currentSelectionType = null;
+  currentSelectionValue = "";
+}
 
- فنکشن openContactForCourse ( کورس کا نام ) {
- // کورس کارڈ سے انتخاب کرتے وقت عمل میں لایا جاتا ہے۔
- دستاویز getElementById ( "generalDropdownsGroup" )۔ انداز ڈسپلے = "کوئی نہیں" ؛
- دستاویز getElementById ( "آٹوفیل فیلڈ گروپ" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "آٹوفیل لیبل" )۔ textContent = "منتخب کورس" ؛
- دستاویز getElementById ( "autofillValue" )۔ قدر = کورس کا نام ؛
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "کوئی نہیں" ؛
+function openContactForCourse(courseName) {
+  // Executed when choosing from Course Card
+  document.getElementById("generalDropdownsGroup").style.display = "none";
+  document.getElementById("autofillFieldGroup").style.display = "block";
+  document.getElementById("autofillLabel").textContent = "Selected Course";
+  document.getElementById("autofillValue").value = courseName;
+  document.getElementById("messageFieldGroup").style.display = "none";
 
- currentSelectionType = "کورس" ؛
- currentSelectionValue = کورس کا نام ؛
- }
+  currentSelectionType = "course";
+  currentSelectionValue = courseName;
+}
 
- فنکشن openContactForService ( serviceName ) {
- // سروس کارڈ سے انتخاب کرتے وقت عمل میں لایا گیا۔
- دستاویز getElementById ( "generalDropdownsGroup" )۔ انداز ڈسپلے = "کوئی نہیں" ؛
- دستاویز getElementById ( "آٹوفیل فیلڈ گروپ" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "آٹوفیل لیبل" )۔ textContent = "منتخب سروس" ؛
- دستاویز getElementById ( "autofillValue" )۔ قدر = خدمت کا نام ؛
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "پیغام" )۔ placeholder = ` ${ serviceName } سے متعلق اپنی تفصیلات یا سوال یہاں لکھیں...` ;
+function openContactForService(serviceName) {
+  // Executed when choosing from Service Card
+  document.getElementById("generalDropdownsGroup").style.display = "none";
+  document.getElementById("autofillFieldGroup").style.display = "block";
+  document.getElementById("autofillLabel").textContent = "Selected Service";
+  document.getElementById("autofillValue").value = serviceName;
+  document.getElementById("messageFieldGroup").style.display = "block";
+  document.getElementById("message").placeholder = `Write your details or question regarding ${serviceName} here...`;
 
- currentSelectionType = "سروس" ؛
- currentSelectionValue = serviceName ;
- }
+  currentSelectionType = "service";
+  currentSelectionValue = serviceName;
+}
 
- فنکشن ہینڈل جنرل سروس سلیکٹ () {
- const val = دستاویز ۔ getElementById ( "selectService" )۔ قدر
- اگر ( ویل ) {
- // متضاد کورس کے انتخاب کو خارج کریں۔
- دستاویز getElementById ( "سلیکٹ کورس" )۔ قدر = "" ؛
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "پیغام" )۔ placeholder = ` ${ val } سے متعلق اپنی تفصیلات یا سوال یہاں لکھیں...` ;
- currentSelectionType = "سروس" ؛
- currentSelectionValue = val ;
- } اور {
- currentSelectionType = null ;
- currentSelectionValue = "" ;
- دستاویز getElementById ( "پیغام" )۔ placeholder = "اپنا سوال یا تشویش یہاں لکھیں..." ;
- }
- }
+function handleGeneralServiceSelect() {
+  const val = document.getElementById("selectService").value;
+  if (val) {
+    // Exclude conflicting course choice
+    document.getElementById("selectCourse").value = "";
+    document.getElementById("messageFieldGroup").style.display = "block";
+    document.getElementById("message").placeholder = `Write your details or question regarding ${val} here...`;
+    currentSelectionType = "service";
+    currentSelectionValue = val;
+  } else {
+    currentSelectionType = null;
+    currentSelectionValue = "";
+    document.getElementById("message").placeholder = "Write your question or concern here...";
+  }
+}
 
- فنکشن ہینڈلGeneralCourseSelect () {
- const val = دستاویز ۔ getElementById ( "سلیکٹ کورس" )۔ قدر
- اگر ( ویل ) {
- // متضاد سروس انتخاب کو خارج کریں۔
- دستاویز getElementById ( "selectService" )۔ قدر = "" ؛
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "کوئی نہیں" ؛
- currentSelectionType = "کورس" ؛
- currentSelectionValue = val ;
- } اور {
- currentSelectionType = null ;
- currentSelectionValue = "" ;
- دستاویز getElementById ( "messageFieldGroup" )۔ انداز ڈسپلے = "بلاک" ؛
- دستاویز getElementById ( "پیغام" )۔ placeholder = "اپنا سوال یا تشویش یہاں لکھیں..." ;
- }
- }
+function handleGeneralCourseSelect() {
+  const val = document.getElementById("selectCourse").value;
+  if (val) {
+    // Exclude conflicting service choice
+    document.getElementById("selectService").value = "";
+    document.getElementById("messageFieldGroup").style.display = "none";
+    currentSelectionType = "course";
+    currentSelectionValue = val;
+  } else {
+    currentSelectionType = null;
+    currentSelectionValue = "";
+    document.getElementById("messageFieldGroup").style.display = "block";
+    document.getElementById("message").placeholder = "Write your question or concern here...";
+  }
+}
 
- فنکشن sendWhatsApp () {
- const نام = دستاویز ۔ getElementById ( "پورا نام" )۔ قدر ٹرم ()؛
- const فون = دستاویز ۔ getElementById ( "waNumber" )۔ قدر ٹرم ()؛
- const ملک = دستاویز ۔ getElementById ( "ملک" )۔ قدر
- const پیغام = دستاویز ۔ getElementById ( "پیغام" )۔ قدر ٹرم ()؛
+function sendWhatsApp() {
+  const name    = document.getElementById("fullName").value.trim();
+  const phone   = document.getElementById("waNumber").value.trim();
+  const country = document.getElementById("country").value;
+  const message = document.getElementById("message").value.trim();
 
- اگر ( ! نام || ! فون || ! ملک ) {
- الرٹ ( "براہ کرم اپنا نام، واٹس ایپ نمبر، اور ملک بھریں۔" )
- واپسی
- }
+  if (!name || !phone || !country) {
+    alert("Please fill in your Name, WhatsApp Number, and Country.");
+    return;
+  }
 
- let text = `السلام علیکم، \n\n` ;
- متن += `*نام:* ${ name } \n ` ;
- متن += `*WhatsApp:* ${ فون } \n ` ;
- متن += `*ملک:* ${ ملک } \n ` ;
+  let text = `Assalaamu Alaikum,\n\n`;
+  text += `*Name:* ${name}\n`;
+  text += `*WhatsApp:* ${phone}\n`;
+  text += `*Country:* ${country}\n`;
 
- اگر ( currentSelectionType === "کورس" ) {
- متن += `*کورس:* ${ currentSelectionValue } \n ` ;
- text += ` \n میں ${ currentSelectionValue } کورس کے لیے رجسٹر ہونے میں دلچسپی رکھتا ہوں۔ براہ کرم تفصیلات فراہم کریں۔ '' ;
- } اور اگر ( currentSelectionType === "service" ) {
- متن += `*سروس:* ${ currentSelectionValue } \n ` ;
- اگر ( پیغام ) {
- متن += ` \n *انکوائری / تفصیلات:* \n ${ پیغام } ` ;
- }
- } اور {
- اگر ( پیغام ) {
- متن += ` \n *پیغام / سوال:* \n ${ پیغام } ` ;
- }
- }
+  if (currentSelectionType === "course") {
+    text += `*Course:* ${currentSelectionValue}\n`;
+    text += `\nI am interested in registering for the ${currentSelectionValue} course. Please provide details.`;
+  } else if (currentSelectionType === "service") {
+    text += `*Service:* ${currentSelectionValue}\n`;
+    if (message) {
+      text += `\n*Inquiry / Details:*\n${message}`;
+    }
+  } else {
+    if (message) {
+      text += `\n*Message / Question:*\n${message}`;
+    }
+  }
 
- متن += ` \n\n _(روحانی کرہ ویب سائٹ کے ذریعے بھیجا گیا)_` ;
+  text += `\n\n_(Sent via Ruhani Sphere website)_`;
 
- const encoded = encodeURICcomponent ( text );
- کھڑکی کھولیں ( ` https://wa.me/ ${ WA_NUMBER } ?text= ${ encoded } ` , "_blank" );
- }
+  const encoded = encodeURIComponent(text);
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, "_blank");
+}
 
- // ========== ہیرو سلائیڈر ==========
- فنکشن initHeroSlider () {
- const سلائیڈز = دستاویز ۔ querySelectorAll ( ". سلائیڈ" );
- const dotsContainer = دستاویز۔ getElementById ( "ہیرو ڈاٹس" )؛
- let current = 0 ;
- ٹائمر دو
+// ========== HERO SLIDER ==========
+function initHeroSlider() {
+  const slides = document.querySelectorAll(".slide");
+  const dotsContainer = document.getElementById("heroDots");
+  let current = 0;
+  let timer;
 
- سلائیڈیں ہر ایک کے لیے (( _ , i ) => {
- const btn = دستاویز ۔ createElement ( "بٹن" )؛
- بی ٹی این className = "ہیرو ڈاٹ" + ( i === 0 ? " فعال" : "" );
- بی ٹی این setAttribute ( "aria-label" , `Slide ${ i + 1 } ` );
- بی ٹی این addEventListener ( "کلک" , () => goTo ( i ))؛
- ڈاٹس کنٹینر appendChild ( btn )؛
- });
+  slides.forEach((_, i) => {
+    const btn = document.createElement("button");
+    btn.className = "hero-dot" + (i === 0 ? " active" : "");
+    btn.setAttribute("aria-label", `Slide ${i + 1}`);
+    btn.addEventListener("click", () => goTo(i));
+    dotsContainer.appendChild(btn);
+  });
 
- فنکشن goTo ( idx ) {
- سلائیڈیں [ موجودہ ]۔ کلاس لسٹ ہٹا دیں ( "فعال" )؛
- دستاویز querySelectorAll ( ".hero-dot" ) [ موجودہ ]۔ کلاس لسٹ ہٹا دیں ( "فعال" )؛
- موجودہ = idx ؛
- سلائیڈیں [ موجودہ ]۔ کلاس لسٹ شامل کریں ( "فعال" )؛
- دستاویز querySelectorAll ( ".hero-dot" ) [ موجودہ ]۔ کلاس لسٹ شامل کریں ( "فعال" )؛
- }
+  function goTo(idx) {
+    slides[current].classList.remove("active");
+    document.querySelectorAll(".hero-dot")[current].classList.remove("active");
+    current = idx;
+    slides[current].classList.add("active");
+    document.querySelectorAll(".hero-dot")[current].classList.add("active");
+  }
 
- فنکشن اگلا () { goTo ( موجودہ + 1 ) % سلائیڈز . لمبائی ) }
+  function next() { goTo((current + 1) % slides.length); }
 
- ٹائمر = سیٹ انٹروال ( اگلا ، 4500 )؛
+  timer = setInterval(next, 4500);
 
- دستاویز querySelector ( ".hero" )۔ addEventListener ( "mouseenter" , () => clearInterval ( ٹائمر ))؛
- دستاویز querySelector ( ".hero" )۔ addEventListener ( "mouseleave" , () => { timer = setInterval ( اگلا , 4500 ); });
- }
+  document.querySelector(".hero").addEventListener("mouseenter", () => clearInterval(timer));
+  document.querySelector(".hero").addEventListener("mouseleave", () => { timer = setInterval(next, 4500); });
+}
 
- // ========== NAVBAR ==========
- فنکشن initNavbar () {
- const navbar = دستاویز ۔ getElementById ( "navbar" )؛
- const hamburger = دستاویز ۔ getElementById ( "ہیمبرگر" )؛
- const navLinks = دستاویز۔ getElementById ( "navLinks" )؛
+// ========== NAVBAR ==========
+function initNavbar() {
+  const navbar = document.getElementById("navbar");
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
 
- کھڑکی addEventListener ( "اسکرول" , () => {
- navbar کلاس لسٹ ٹوگل ( "اسکرولڈ" , ونڈو . scrollY > 40 )؛
- });
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 40);
+  });
 
- ہیمبرگر addEventListener ( "کلک" , () => {
- ہیمبرگر کلاس لسٹ ٹوگل ( "کھلا" )؛
- نیو لنکس کلاس لسٹ ٹوگل ( "کھلا" )؛
- });
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navLinks.classList.toggle("open");
+  });
 
- نیو لنکس querySelectorAll ( "a" )۔ ہر ایک کے لیے ( لنک => {
- لنک addEventListener ( "کلک" , () => {
- ہیمبرگر کلاس لسٹ ہٹا دیں ( "کھلا" )؛
- نیو لنکس کلاس لسٹ ہٹا دیں ( "کھلا" )؛
- });
- });
- }
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("open");
+      navLinks.classList.remove("open");
+    });
+  });
+}
 
- // ========== اسکرول اینیمیشنز ==========
- فنکشن initScrollAnimations () {
- const آبزرور = نیا انٹرسیکشن آبزرور (( اندراجات ) => {
- اندراجات ہر ایک کے لیے ( اندراج => {
- اگر ( اندراج . ایک دوسرے کو ملانا ہے ) {
- اندراج ہدف کلاس لسٹ شامل کریں ( "مرئی" )؛
- }
- });
- }، { حد : 0.1 })؛
+// ========== SCROLL ANIMATIONS ==========
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
 
- فنکشن مشاہدہ تمام () {
- دستاویز querySelectorAll ( ". animate-on-scroll" )۔ forEach ( el => مبصر . مشاہدہ ( el ))؛
- }
+  function observeAll() {
+    document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
+  }
 
- مشاہدہ تمام ()
- سیٹ ٹائم آؤٹ ( مشاہدہ تمام ، 100 )؛
- }
+  observeAll();
+  setTimeout(observeAll, 100);
+}
 
- // اندرونی روابط کے لیے ہموار اسکرول
- فنکشن initSmoothScroll () {
- دستاویز querySelectorAll ( 'a[href^="#"]' )۔ ہر ایک کے لیے ( a => {
- ایک addEventListener ( "کلک" , e => {
- const id = a . getAttribute ( "href" )۔ ٹکڑا ( 1 )؛
- const ہدف = دستاویز ۔ getElementById ( id )؛
- اگر ( ہدف ) {
- e preventDefault ();
- // اگر صارف براہ راست رابطے کے لنکس استعمال کرتا ہے تو ابتدائی عام حالت پر دوبارہ ترتیب دیں۔
- اگر ( id === "رابطہ" ) {
- resetContactForm ()؛
- }
+// Smooth scroll for internal links
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+      const id = a.getAttribute("href").slice(1);
+      const target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        
+        // Reset to initial general state if user uses contact links directly
+        if (id === "contact") {
+          resetContactForm();
+        }
 
- const navH = دستاویز ۔ getElementById ( "navbar" )۔ آفسیٹ اونچائی
- const top = ہدف ۔ getBoundingClientRect ()۔ ٹاپ + ونڈو scrollY - navH - 12 ;
- کھڑکی scrollTo ({ top , برتاؤ : "smooth" })؛
- }
- });
- });
- }
+        const navH = document.getElementById("navbar").offsetHeight;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH - 12;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  });
+}
 
- // اسکرول پر فعال نیوی لنک
- فنکشن initActiveNavHighlight () {
- const sections = [ "گھر" ، "روہانی خدمات" ، "کورسز" ، "کے بارے میں" ، "رابطہ" ]؛
- const لنکس = دستاویز ۔ querySelectorAll ( ".nav-link" );
+// Active nav link on scroll
+function initActiveNavHighlight() {
+  const sections = ["home", "rohani-services", "courses", "about", "contact"];
+  const links = document.querySelectorAll(".nav-link");
 
- کھڑکی addEventListener ( "اسکرول" , () => {
- let current = "" ;
- حصے ہر ایک کے لیے ( id => {
- const el = دستاویز ۔ getElementById ( id )؛
- اگر ( ! el ) واپس
- const navH = دستاویز ۔ getElementById ( "navbar" )۔ آفسیٹ اونچائی
- اگر ( window . scrollY >= el . offsetTop - navH - 60 ) current = id ;
- });
- لنکس ہر ایک کے لیے ( لنک => {
- لنک انداز رنگ = "" ؛
- const href = لنک ۔ getAttribute ( "href" )۔ تبدیل کریں ( "#" ، "" )؛
- اگر ( href === موجودہ ) لنک ۔ انداز رنگ = "var(--سونا)" ؛
- });
- });
- }
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const navH = document.getElementById("navbar").offsetHeight;
+      if (window.scrollY >= el.offsetTop - navH - 60) current = id;
+    });
+    links.forEach(link => {
+      link.style.color = "";
+      const href = link.getAttribute("href").replace("#", "");
+      if (href === current) link.style.color = "var(--gold)";
+    });
+  });
+}
 
- // ========== INIT ===========
- دستاویز addEventListener ( "DOMContentLoaded" , () => {
- populateDropdowns ();
- renderRohaniServices ();
- renderCourses ()؛
- initHeroSlider ()؛
- initNavbar ()؛
- initScrollAnimations ()؛
- initSmoothScroll ()؛
- initActiveNavHighlight ()؛
- resetContactForm ();
- });
+// ========== INIT ==========
+document.addEventListener("DOMContentLoaded", () => {
+  populateDropdowns();
+  renderRohaniServices();
+  renderCourses();
+  initHeroSlider();
+  initNavbar();
+  initScrollAnimations();
+  initSmoothScroll();
+  initActiveNavHighlight();
+  resetContactForm();
+});
