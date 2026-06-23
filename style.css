@@ -196,6 +196,38 @@ ul { list-style: none; }
 }
 
 /* ===========================
+   FEMALE SERVICES BANNER
+   =========================== */
+.female-banner {
+  background: linear-gradient(90deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  padding: 16px 0;
+}
+.female-banner-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap; text-align: center;
+}
+.female-banner-icon { font-size: 1.6rem; flex-shrink: 0; }
+.female-banner-text {
+  font-size: 0.92rem; color: var(--text);
+  max-width: 680px; line-height: 1.5;
+}
+.female-banner-text strong { color: var(--gold-light); }
+.female-banner-btn {
+  flex-shrink: 0;
+  background: var(--gold); color: #111;
+  padding: 8px 20px; border-radius: 8px;
+  font-size: 0.85rem; font-weight: 700;
+  transition: var(--transition);
+}
+.female-banner-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+@media (max-width: 600px) {
+  .female-banner-inner { flex-direction: column; gap: 10px; }
+}
+
+/* ===========================
    BUTTONS
    =========================== */
 .btn {
@@ -404,6 +436,33 @@ ul { list-style: none; }
 .form-group textarea { resize: vertical; min-height: 100px; }
 .readonly-field { opacity: 0.7; cursor: not-allowed; }
 
+/* Phone input with country code */
+.phone-input-group {
+  display: flex; align-items: stretch;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.phone-input-group:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+}
+.phone-code {
+  display: flex; align-items: center;
+  padding: 13px 14px;
+  background: rgba(201,168,76,0.12);
+  color: var(--gold-light); font-weight: 700; font-size: 0.95rem;
+  border-right: 1px solid var(--card-border);
+  flex-shrink: 0;
+}
+.phone-input-group input {
+  border: none; border-radius: 0;
+  background: transparent;
+}
+.phone-input-group input:focus { box-shadow: none; }
+
 /* Contact info box */
 .contact-info-header {
   display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
@@ -466,6 +525,27 @@ ul { list-style: none; }
 .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
 .footer-links a { font-size: 0.85rem; color: var(--text-muted); transition: color var(--transition); }
 .footer-links a:hover { color: var(--gold); }
+
+/* ===========================
+   FLOATING WHATSAPP BUTTON
+   =========================== */
+.floating-wa-btn {
+  position: fixed;
+  bottom: 22px; right: 22px;
+  width: 56px; height: 56px;
+  background: var(--green-wa);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.7rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 900;
+  transition: var(--transition);
+}
+.floating-wa-btn:hover { transform: scale(1.08); box-shadow: 0 10px 30px rgba(37,211,102,0.45); }
+
+@media (max-width: 480px) {
+  .floating-wa-btn { width: 50px; height: 50px; font-size: 1.5rem; bottom: 16px; right: 16px; }
+}
 
 /* ===========================
    SCROLL ANIMATIONS
