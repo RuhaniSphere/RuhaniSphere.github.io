@@ -46,7 +46,6 @@ const quranCourses = [
 ];
 
 const WA_NUMBER = "923038853329";  // WhatsApp number (intl format)
-const PK_CODE = "+92";             // Pakistan dialing code shown alongside the phone field
 
 // Track selection details globally
 let currentSelectionType = null;   // 'service', 'course', or null
@@ -168,12 +167,11 @@ function handleGeneralCourseSelect() {
 
 function sendWhatsApp() {
   const name    = document.getElementById("fullName").value.trim();
-  const phoneRaw = document.getElementById("waNumber").value.trim();
-  const phone   = phoneRaw ? `${PK_CODE} ${phoneRaw}` : "";
+  const phone = document.getElementById("waNumber").value.trim();
   const country = document.getElementById("country").value;
   const message = document.getElementById("message").value.trim();
 
-  if (!name || !phoneRaw || !country) {
+  if (!name || !phone || !country) {
     alert("Please fill in your Name, WhatsApp Number, and Country.");
     return;
   }
